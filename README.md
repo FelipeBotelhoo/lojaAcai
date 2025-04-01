@@ -4,7 +4,7 @@
 
 ## ✨ Demonstração
 
-[![Acessar Site](https://img.shields.io/badge/🍇_Acessar_Site-8A2BE2?style=for-the-badge)](https://seusite.com)
+
 
 ## 🚀 Funcionalidades Atuais
 
