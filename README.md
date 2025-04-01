@@ -1,6 +1,4 @@
-# 🍇 Açaí Premium - Landing Page
-
-![Banner do Açaí Premium](img/banner/bannerhome.png)
+#  Açaí Premium - Landing Page
 
 > Landing page para uma açaiteria premium com cardápio digital e integração direta com WhatsApp para pedidos.
 
@@ -34,6 +32,9 @@
 - ![Font Awesome](https://img.shields.io/badge/Font_Awesome-528DD7?style=flat-square&logo=font-awesome&logoColor=white)
 - ![Google Maps](https://img.shields.io/badge/Google_Maps-4285F4?style=flat-square&logo=google-maps&logoColor=white)
 
+
+
+
 ## 🎨 Design System
 
 **Cores Principais:**
@@ -42,3 +43,18 @@
 #D14B8A (Rosa Destaque)
 #1C3D5A (Azul Profundo)
 #FFFFFF (Branco)
+```
+
+## 🔮 Futuras Implementações
+
+### 🛒 Sistema de Pedidos
+<p>
+  <img src="https://img.shields.io/badge/STATUS-PLANEJADO-blue?style=flat-square" alt="Planejado">
+  <img src="https://img.shields.io/badge/PRIORIDADE-ALTA-red?style=flat-square" alt="Alta Prioridade">
+</p>
+
+- [ ] Carrinho de compras
+- [ ] Chatbot integrado
+- [ ] Finalização via WhatsApp
+- [ ] Calculadora de preços
+
