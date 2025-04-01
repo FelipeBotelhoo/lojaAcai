@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--estilos css-->
+    <link rel="stylesheet" href="./estilo/estilo.css">
+    <link rel="stylesheet" href="./estilo/global.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>Açaí Premium</title>
+
+    <style>
+        .produto-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            background: white;
+        }
+
+        .produto-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(106, 27, 154, 0.15);
+        }
+
+        .produto-img-container {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .produto-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .produto-card:hover .produto-img {
+            transform: scale(1.05);
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .card-title {
+            font-weight: 700;
+            color: var(--roxo-escuro);
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            color: #666;
+            margin-bottom: 20px;
+            min-height: 60px;
+        }
+
+        .btn-comprar {
+            background: linear-gradient(135deg, var(--roxo-medio), var(--roxo-escuro));
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .btn-comprar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(106, 27, 154, 0.3);
+        }
+
+        .badge-preco {
+            position: absolute;
+            top: 15px;
+            left: 0;
+            background-color: var(--rosa);
+            color: white;
+            padding: 5px 15px;
+            font-weight: 600;
+            border-radius: 0 50px 50px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .btn-roxo-outline {
+            border: 2px solid var(--roxo-medio);
+            color: var(--roxo-medio);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-roxo-outline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--roxo-medio), var(--roxo-escuro));
+            transition: all 0.4s ease;
+            z-index: -1;
+            color: #fff;
+        }
+
+        .btn-roxo-outline:hover {
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(106, 27, 154, 0.2);
+        }
+
+        .btn-roxo-outline:hover::before {
+            left: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid navbar-container">
+            <div class="logo">
+                <img src="./img/logo.png" alt="">
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link " href="./index.html">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#sobre">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./cardapio.html">Cardápio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--Seção Principal-->
+    <main class="section-principal">
+        <div class="split-background">
+            <div class="wave-vertical"></div>
+            <div class="text-principal">
+                <div class="hero-content">
+                    <h1>O melhor açaí da região!</h1>
+                    <p>Nosso açaí é 100% natural, preparado com frutas frescas e os melhores ingredientes para você se
+                        deliciar a qualquer momento do dia.</p>
+                </div>
+            </div>
+
+
+            <div class="image-principal">
+                <img src="./img/img-principal.png" alt="Bowl de açaí" class="açai-image">
+            </div>
+        </div>
+    </main>
+
+
+    <!-- Seção Sobre Nós -->
+    <section class="sobre-section py-5" id="sobre">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <div class="col-lg-6">
+                    <div class="ps-lg-4">
+                        <h2 class="mb-4">Nossa História</h2>
+                        <p class="subtitulo-sobre">Desde 2010 levando o autêntico sabor da Amazônia.</p>
+                        <p>Fundada por apaixonados pelo açaí, nossa loja nasceu do desejo de compartilhar o verdadeiro
+                            sabor dessa iguaria amazônica, preparada com técnicas tradicionais e ingredientes
+                            selecionados.</p>
+                        <div class="d-flex mt-4">
+                            <div class="pe-4">
+                                <h3 class="text-sobre">+5000</h3>
+                                <p>Clientes satisfeitos</p>
+                            </div>
+                            <div class="pe-4">
+                                <h3 class="text-sobre">100%</h3>
+                                <p>Açaí natural</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="./img/profissional-acai.jpg" alt="Nossa equipe preparando açaí"
+                        class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Banner Casquinha  -->
+    <section class="premium-banner">
+        <div class="geometric-pattern"></div>
+        <div class="container">
+            <div class="banner-grid">
+                <div class="product-image-container">
+                    <img src="./img/Cascao_Home.png" alt="Sorvete de Açaí Premium" class="banner-product-img">
+                </div>
+                <div class="banner-content">
+                    <div class="content-inner">
+
+                        <h2 class="banner-title">Açaí <span>Premium</span> na Casquinha</h2>
+                        <p class="banner-subtitle">A experiência perfeita de crocância e cremosidade</p>
+
+                        <ul class="product-features">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Casquinha artesanal crocante</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Açaí 100% puro </span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Opções de acompanhamentos</span>
+                            </li>
+                        </ul>
+
+                        <div class="product-highlight">
+                            <i class="fas fa-star"></i>
+                            <span>Mais pedido do mês!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Destaques do cardapio-->
+    <section class="destaques-section">
+        <div class="container">
+            <div class="titulo-section">
+                <h2>Nossos Produtos</h2>
+                <p>Conheça nossas deliciosas opções de açaí, preparadas com ingredientes frescos e de alta qualidade</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <div class="produto-card">
+                        <img src="./img/acai-tradicional.jpg" class="produto-img" alt="Açaí Tradicional">
+                        <div class="card-body">
+                            <h5 class="card-title">Açaí Tradicional</h5>
+                            <p class="card-text">Açaí puro acompanhado de banana e granola crocante.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge-preco"">R$ 12,90</span>
+                                <button class=" btn btn-comprar">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="produto-card">
+                        <img src="./img/acai-frutas.jpg" class="produto-img" alt="Açaí com Frutas">
+                        <div class="card-body">
+                            <h5 class="card-title">Açaí com Frutas</h5>
+                            <p class="card-text">Açaí com mix de frutas frescas e granola especial.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge-preco"">R$ 15,90</span>
+                                <button class=" btn btn-comprar">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="produto-card">
+                        <img src="./img/whey.jpg" class="produto-img" alt="Açaí Power">
+                        <div class="card-body">
+                            <h5 class="card-title">Açaí Power</h5>
+                            <p class="card-text">Açaí com whey protein, banana, mel e granola fitness.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge-preco"">R$ 18,90</span>
+                                <button class=" btn btn-comprar">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="produto-card">
+                        <img src="./img/acai-nutela1.jpg" class="produto-img" alt="Açaí com Nutella">
+                        <div class="card-body">
+                            <h5 class="card-title">Açaí com Nutella</h5>
+                            <p class="card-text">Açaí cremoso com Nutella, morangos e castanhas.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge-preco"">R$ 20,90</span>
+                                <button class=" btn btn-comprar">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Botão para página cardapio completa -->
+            <div class="text-center mt-5 pt-3">
+                <a href="./cardapio.html" class="btn  btn-roxo-outline  rounded-pill px-5 py-3 ">
+                    <i class="fas fa-book-open me-2"></i>Ver Cardápio Completo
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Seção de Diferenciais -->
+    <section class="diferenciais-section">
+        <div class="container">
+            <div class="titulo-section">
+                <h2>Nossos Diferenciais</h2>
+                <p>Descubra por que nosso açaí é especial e conquista tantos clientes</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="diferencial-item">
+                        <div class="diferencial-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>100% Natural</h3>
+                        <p>Nosso açaí é livre de conservantes e aditivos artificiais, garantindo um produto puro e
+                            saudável.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="diferencial-item">
+                        <div class="diferencial-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>Origem Sustentável</h3>
+                        <p>Trabalhamos diretamente com produtores que preservam a floresta e suas tradições.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="diferencial-item">
+                        <div class="diferencial-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Qualidade Premium</h3>
+                        <p>Selecionamos apenas os melhores frutos para oferecer o açaí mais cremoso e saboroso.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Seção de Localização -->
+    <section class="localizacao-premium py-5" id="contato">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <span
+                    class="section-badge bg-roxo-claro text-white px-3 py-1 rounded-pill mb-3 d-inline-block">Visite-nos</span>
+                <h2 class="section-title display-5 fw-bold text-roxo-escuro mb-3">Nossa Localização</h2>
+                <p class="section-subtitle lead text-muted">Experimente o verdadeiro açaí premium em nosso espaço
+                    acolhedor</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Mapa e Endereço -->
+                <div class="col-lg-6">
+                    <div class="location-card h-100 border-0 rounded-4 overflow-hidden shadow-lg">
+                        <div class="map-container position-relative">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14716.772911911723!2d-43.46875076251233!3d-22.75820928077787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9967aa7af1c927%3A0x3b605d45b924ac99!2sCentro%2C%20Nova%20Igua%C3%A7u%20-%20RJ!5e0!3m2!1spt-BR!2sbr!4v1743545061140!5m2!1spt-BR!2sbr"
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <div class="map-overlay"></div>
+                        </div>
+
+                        <div class="address-box bg-white p-4">
+                            <div class="d-flex align-items-start">
+                                <div class="icon-box bg-roxo-claro text-white rounded-3 p-3 me-3">
+                                    <i class="fas fa-map-marker-alt fa-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="h5 text-roxo-escuro mb-2">Nosso Endereço</h3>
+                                    <p class="mb-3">Centro
+                                        Nova Iguaçu - RJ- CEP 66000-000
+                                    </p>
+                                    <a href="https://maps.google.com/?q=Rua+das+Palmeiras,+123,+Belém"
+                                        class="btn btn-comprar rounded-pill px-4" target="_blank">
+                                        <i class="fas fa-directions me-2"></i>Rotas no Google Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informações de Contato -->
+                <div class="col-lg-6" id="contato">
+                    <div class="info-card bg-white rounded-4 shadow-lg h-100 p-4 p-lg-5">
+                        <h3 class="info-title text-center text-roxo-escuro mb-5">Como podemos te ajudar?</h3>
+
+                        <!-- Horário -->
+                        <div class="info-item d-flex mb-4 pb-3 border-bottom">
+                            <div class="icon-box bg-rosa text-white rounded-3 p-3 me-3 flex-shrink-0">
+                                <i class="fas fa-clock fa-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="h5 text-roxo-escuro mb-2">Horário de Funcionamento</h4>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="d-flex justify-content-between mb-2">
+                                        <span class="text-muted">Segunda a Sexta:</span>
+                                        <span class="fw-medium">08h às 20h</span>
+                                    </li>
+                                    <li class="d-flex justify-content-between">
+                                        <span class="text-muted">Sábado e Domingo:</span>
+                                        <span class="fw-medium">09h às 22h</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Telefone -->
+                        <div class="info-item d-flex mb-4 pb-3 border-bottom">
+                            <div class="icon-box bg-roxo-medio text-white rounded-3 p-3 me-3 flex-shrink-0">
+                                <i class="fas fa-phone-alt fa-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="h5 text-roxo-escuro mb-2">Contato Telefônico</h4>
+                                <ul class="list-unstyled mb-3">
+                                    <li class="mb-2">
+                                        <a href="tel:219000000" class="text-decoration-none text-dark fw-medium">
+                                            <i class="fas fa-phone-alt me-2 text-roxo-claro"></i>(21) 1234-5678
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="tel:219000000" class="text-decoration-none text-dark fw-medium">
+                                            <i class="fas fa-mobile-alt me-2 text-roxo-claro"></i>(21) 1234-5678
+                                        </a>
+                                    </li>
+                                </ul>
+                                <a href="https://web.whatsapp.com/" class="btn btn-success rounded-pill px-4"
+                                    target="_blank">
+                                    <i class="fab fa-whatsapp me-2"></i>Chamar no WhatsApp
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Delivery -->
+                        <div class="info-item d-flex">
+                            <div class="icon-box text-white rounded-3 p-3 me-3 flex-shrink-0">
+                                <i class="fas fa-motorcycle fa-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="h5  mb-2">Delivery</h4>
+                                <p class="mb-3">Peça nosso açaí premium no conforto da sua casa</p>
+                                <div class="delivery-buttons">
+                                    <a href="#" class="btn btn-dark rounded-pill px-4 me-2 mb-2">
+                                        <i class="fas fa-mobile-alt me-2"></i>App Próprio
+                                    </a>
+                                    <a href="#" class="btn btn-danger rounded-pill px-4 mb-2">
+                                        <i class="fas fa-utensils me-2"></i>Peça no iFood
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4 class="mb-3">Açaí Delícia</h4>
+                    <p>O verdadeiro sabor da Amazônia em sua cidade. Qualidade, sabor e tradição em cada bowl.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3">Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./home.html" class="text-white text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="./cardapio.html" class="text-white text-decoration-none">Cardápio</a>
+                        </li>
+                        <li class="mb-2"><a href="#sobre" class="text-white text-decoration-none">Sobre Nós</a></li>
+                        <li class="mb-2"><a href="#contato" class="text-white text-decoration-none">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3">Cardápio</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./cardapio.html" class="text-white text-decoration-none">Açaí
+                                Tradicional</a></li>
+                        <li class="mb-2"><a href="./cardapio.html" class="text-white text-decoration-none">Açaí com
+                                Frutas</a></li>
+                        <li class="mb-2"><a href="./cardapio.html" class="text-white text-decoration-none">Açaí
+                                Power</a></li>
+                        <li class="mb-2"><a href="./cardapio.html" class="text-white text-decoration-none">Açaí com
+                                Nutella</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-3">Newsletter</h5>
+                    <p>Assine nossa newsletter e receba promoções exclusivas.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Seu e-mail">
+                        <button class="btn btn-primary" type="button">Assinar</button>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="border-color: rgba(255,255,255,0.1);">
+
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 Açaí Premium. Todos os direitos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Desenvolvido por Felipe Botelho</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
