@@ -4,6 +4,8 @@
 
 ## ✨ Demonstração
 
+[![Acessar Site Açaí Premium](https://img.shields.io/badge/🍇_Acessar_Site-8A2BE2?style=for-the-badge&logo=vercel&logoColor=white)](https://acaipremium.vercel.app/index.html)
+
 
 
 ## 🚀 Funcionalidades Atuais
